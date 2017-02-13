@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.use(express.static(__dirname));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
   res.set('Content-Type', 'application/json');
@@ -152,11 +153,11 @@ app.delete('/nutrifacts/:id', function (req, res) {
 
 
 
-/*app.listen(3000, function () {
+app.listen(3000, function () {
   console.log('Server started. Open http://localhost:3000 in your browser.');
-});*/
+});
 
-app.set('port', (process.env.PORT || 5000));
+/*app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
-});
+});*/

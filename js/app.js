@@ -1,5 +1,5 @@
-angular.module('App', [])
-.directive('markdown', function () {
+angular.module('App', []);
+/*.directive('markdown', function () {
   var converter = new Showdown.converter();
   return {
     scope: {
@@ -12,4 +12,4 @@ angular.module('App', [])
       });
     }
   }
-});
+});*/
