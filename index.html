@@ -25,11 +25,35 @@
     </nav>
 
     <div class="container" ng-controller="NutriFactsController">
+        
+        <div class="row">
+        <div class="col-sm-5">
+          <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Food Items
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+          <li class="list-group-item" ng-repeat="item in nutrifacts" ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}<br />
+                <small>{{item.date | date:'short'}}</small></li>
+    </ul>
+   </div>
+          </div>
+        <div class="col-sm-3"> 
+             <div class="panel panel-default">
+               <div class="panel-heading">
+                <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right" ng-click="create()">New</button>  Create a new food item  </h3>
+               </div>
+            </div>
+            </div>
+            
+        </div>
+        
+        <br>
       <div class="row">
+          
         <!--<div class="col-sm-3">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right" ng-click="create()">New</button> My Items</h3>
+              <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right" ng-click="create()">New</button> Food Items</h3>
             </div>
             <div class="panel-body">
               <p ng-if="!nutrifacts.length">No items</p>
@@ -41,7 +65,7 @@
           </div>
         </div>-->
         
-  <div class="col-sm-4">
+  <!--<div class="col-sm-4">
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Food Items
       <span class="caret"></span></button>
@@ -50,9 +74,9 @@
                 <small>{{item.date | date:'short'}}</small></li>
     </ul>
    </div>
-          </div>
+          </div>-->
           
-        <div class="col-sm-10   ">
+        <div class="col-sm-8">
           <div class="panel panel-default" ng-hide="editing">
             <div class="panel-heading">
               <h3 class="panel-title"> <span class='attribute'> Item: </span>{{content.title}} <button class="btn btn-primary btn-xs pull-right" ng-click="editing = true">Edit</button></h3>
