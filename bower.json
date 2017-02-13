@@ -1,0 +1,16 @@
+{
+  "name": "nutritionfacts",
+  "version": "1.0.0",
+  "homepage": "",
+  "authors": [
+    "Csilla Bukki <csilla.bukki@gmail.com>"
+  ],
+  "description": "Learning full stack web development with nutrition facts",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "angular": "~1.3.6",
+    "showdown": "~0.3.1"
+  }
+}

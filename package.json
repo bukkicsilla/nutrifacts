@@ -1,0 +1,20 @@
+{
+  "name": "nutritionfacts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Csilla Bukki",
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "body-parser": "^1.9.3",
+    "express": "^4.10.2"
+  }
+}
