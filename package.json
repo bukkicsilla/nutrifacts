@@ -15,6 +15,10 @@
   "homepage": "",
   "dependencies": {
     "body-parser": "^1.9.3",
-    "express": "^4.10.2"
-  }
+    "express": "^4.10.2",
+    "bower": "0.6.x"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+   }
 }
