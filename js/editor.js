@@ -1,9 +1,12 @@
 angular.module('App')
 .controller('NutriFactsController', function ($scope, $http) {
-  $scope.editing = true;
-
+  $scope.editing = false;
+  $scope.start = true;
+  $scope.image_path  = "images/start0";
+    
   $scope.view = function (index) {
     $scope.editing = false;
+    $scope.start = false;
     $scope.content = $scope.nutrifacts[index];
   };
 
