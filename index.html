@@ -76,30 +76,53 @@
     </ul>
    </div>
           </div>-->
+        <!--  calories:'',
+      total_fat:'',
+      saturated_fat:'',
+      trans_fat:'',
+      cholesterol:'',
+      sodium:'',
+      total_carbohydrate:'',
+      dietary_fiber:'',
+      sugars:'',
+      protein:'',
+      vitaminA:'',
+      vitaminC:'',
+      calcium:'',
+      iron:'',--> 
+          
+          <img src="images/milkchocolatehazelnut.jpg" width="20%"/>
           
         <div class="col-sm-8">
           <div class="panel panel-default" ng-hide="editing">
             <div class="panel-heading">
               <h3 class="panel-title"> <span class='attribute'> Item: </span>{{content.title}} 
-                  <!--<button class="btn btn-danger btn-xs pull-right glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"></button>-->
+                  
                   <button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-pencil" ng-click="editing = true"></button></h3>
             </div>
-              <div class="panel-body"> <span class='attribute'> Serving Size: </span> {{ content.serving_size }} </div>
-              <div class="panel-body"> <span class='attribute'> Serving per Container: </span> {{ content.serving_per_container }} </div>
               <hr>
-              <div class="panel-body"> <span class='attribute'> Calories: </span> {{ content.calories }} </div>
-            <!--<div class="panel-body" markdown="{{content.ingredients}}"> </div>-->
-              <div class="panel-body"> <span class='attribute'> Ingredients: </span> {{ content.ingredients }} </div>
-              
+              <div class="panel-simple"> <span class='attribute'> Serving Size: </span> {{ content.serving_size }} </div>
+              <div class="panel-simple"> <span class='attribute'> Serving per Container: </span> {{ content.serving_per_container }} </div>
+              <hr>
+              <div class="panel-simple"> <span class='attribute'> Calories: </span> {{ content.calories }} </div>
+              <hr>
+              <div class="panel-simple"> <span class='attribute'> Total Fat: </span> {{ content.total_fat }} </div>
+              <div class="panel-simple"> <span class='attribute'> Saturated Fat: </span> {{ content.saturated_fat }} </div>
+              <div class="panel-simple"> <span class='attribute'> Trans Fat: </span> {{ content.trans_fat }} </div>
+              <div class="panel-simple"> <span class='attribute'> Cholesterol: </span> {{ content.cholesterol }} </div>
+              <hr>
+              <div class="panel-simple"> <span class='attribute'> Ingredients: </span> {{ content.ingredients }} </div>
+              <hr>
               
               <div class="panel-footer"> 
                   <span class='attribute'> Date: </span> {{content.date | date:'short'}} 
                </div>
           </div>
-          <!--<div ng-hide="editing">
+            <!-- delete for me -->
+          <div ng-hide="editing">
               <br><br>
             <button class="btn btn-danger  glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"> Delete Item!</button>
-          </div>-->    
+          </div>    
             
             
           <form name="editor" class="panel panel-default" ng-show="editing">
@@ -108,10 +131,13 @@
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-sm-10">
-                  <h4> Ingredients </h4>
-                  <textarea class="form-control" rows="2" ng-model="content.ingredients" placeholder="Ingredients" required></textarea>
+                  
+                  <!-- put image path for me -->
+                  <div class="col-sm-10">
+                  <h5> Image Path </h5>
+                  <input type="text" class="form-control" ng-model="content.image_path" placeholder="Image path"/>
                 </div>
+                  
                   <div class="col-sm-10">
                   <h4> Serving Size </h4>
                   <textarea class="form-control" rows="1" ng-model="content.serving_size" placeholder="Serving Size" required></textarea>
@@ -123,6 +149,10 @@
                   <div class="col-sm-10">
                   <h4> Calories </h4>
                   <textarea class="form-control" rows="1" ng-model="content.calories" placeholder="Calories" required></textarea>
+                </div>
+                  <div class="col-sm-10">
+                  <h4> Ingredients </h4>
+                  <textarea class="form-control" rows="2" ng-model="content.ingredients" placeholder="Ingredients" required></textarea>
                 </div>
               </div>
             </div>

@@ -11,9 +11,23 @@ angular.module('App')
     $scope.editing = true;
     $scope.content = {
       title: '',
+      image_path:'',
       serving_size:'',
       serving_per_container:'',
       calories:'',
+      total_fat:'',
+      saturated_fat:'',
+      trans_fat:'',
+      cholesterol:'',
+      sodium:'',
+      total_carbohydrate:'',
+      dietary_fiber:'',
+      sugars:'',
+      protein:'',
+      vitaminA:'',
+      vitaminC:'',
+      calcium:'',
+      iron:'', 
       ingredients: ''
     };
   };
