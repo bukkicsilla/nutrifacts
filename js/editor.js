@@ -18,6 +18,7 @@ angular.module('App')
       serving_size:'',
       serving_per_container:'',
       calories:'',
+      calories_fat:'',
       total_fat:'',
       saturated_fat:'',
       trans_fat:'',
