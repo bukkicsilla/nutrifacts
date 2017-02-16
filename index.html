@@ -153,31 +153,45 @@
                 </div>
                   
                   
-                  
                   <div class="col-sm-10">
                   <h4> Total Fat </h4>
-                  <textarea class="form-control" rows="1" ng-model="content.total_fat" placeholder="Total Fat" required></textarea>
+                  <input type="text" class="form-control" ng-model="content.total_fat" placeholder="Total Fat" required/>
                 </div>
+                  
+                  
                   <div class="col-sm-10">
-                  <h4> Saturated Fat </h4>
-                  <textarea class="form-control" rows="1" ng-model="content.saturated_fat" placeholder="Saturated Fat" required></textarea>
-                </div>
-                  <div class="col-sm-10">
-                  <h4> Trans Fat </h4>
-                  <textarea class="form-control" rows="1" ng-model="content.trans_fat" placeholder="Trans Fat" required></textarea>
-                </div>
+                      <div class="row">
+                          <div class="col-sm-6">
+                             <h4> Saturated Fat </h4><input type="text" class="form-control" ng-model="content.saturated_fat" placeholder="Saturated Fat" required/>
+                          </div>
+                          <div class="col-sm-6">
+                             <h4> Trans Fat </h4><input type="text" class="form-control" ng-model="content.trans_fat" placeholder="Trans Fat" required/>
+                           </div>
+                        </div>
+                  </div>
+                  
                   <div class="col-sm-10">
                   <h4> Cholesterol </h4>
-                  <textarea class="form-control" rows="1" ng-model="content.cholesterol" placeholder="Cholesterol" required></textarea>
+                  <input type="text" class="form-control"  ng-model="content.cholesterol" placeholder="Cholesterol" required/>
                 </div>
+                  
+                  
                   <div class="col-sm-10">
-                  <h4> Sodium </h4>
-                  <textarea class="form-control" rows="1" ng-model="content.sodium" placeholder="Sodium" required></textarea>
-                </div>
+                      <div class="row">
+                        <div class="col-sm-6">  
+                  <h4> Sodium </h4><input type="text" class="form-control" ng-model="content.sodium" placeholder="Sodium" required/>
+                        </div>
+                        <div class="col-sm-6">  
+                  <h4> Potassium </h4><input type="text" class="form-control" ng-model="content.potassium" placeholder="Potassium"/>
+                        </div>
+                      </div>
+                  </div>
+                  
                   <div class="col-sm-10">
                   <h4> Total Carbohydrate </h4>
                   <textarea class="form-control" rows="1" ng-model="content.total_carbohydrate" placeholder="Total Carbohydrate" required></textarea>
                 </div>
+                  
                   <div class="col-sm-10">
                   <h4> Dietary Fiber </h4>
                   <textarea class="form-control" rows="1" ng-model="content.dietary_fiber" placeholder="Dietary Fiber" required></textarea>
