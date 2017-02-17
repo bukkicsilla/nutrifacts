@@ -73,23 +73,100 @@
                   <button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-pencil" ng-click="editing = true" ng-hide="start"></button></h3>
             </div>
               <br>
-              <div class="panel-simple"> <span class='attribute'> Serving Size: </span> {{ content.serving_size }} </div>
-              <div class="panel-simple"> <span class='attribute'> Serving per Container: </span> {{ content.serving_per_container }} </div>
+               <div class="row">
+                   <div class="col-sm-6">
+                   <div class="panel-simple"> <span class='attribute'> Serving Size: </span> {{ content.serving_size }} </div>
+                   </div>
+                   <div class="col-sm-6">
+                       <div class="panel-simple"> <span class='attribute'> Serving per Container: </span> {{ content.serving_per_container }}  </div>
+                   </div>
+              </div>
               <hr>
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Calories: </span> {{ content.calories }} </div>
+                  </div>
+                   <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Calories from Fat: </span> {{ content.calories_fat }} </div>
+                  </div>
+              </div>
               <hr>
+            
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Total Fat: </span> {{ content.total_fat }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.total_fat_dv }} </div>
+                  </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Saturated Fat: </span> {{ content.saturated_fat }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.saturated_fat_dv }} </div>
+                  </div>
+              </div>
+              
               <div class="panel-simple"> <span class='attribute'> Trans Fat: </span> {{ content.trans_fat }} </div>
+             
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Cholesterol: </span> {{ content.cholesterol }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.cholesterol_dv }} </div>
+                  </div>
+                  </div>
+              <div class="panel-simple"> <span class='attribute'> Polyunsaturated Fat: </span> {{ content.polyunsaturated_fat }} </div>
+              <div class="panel-simple"> <span class='attribute'> Monounsaturated Fat: </span> {{ content.monounsaturated_fat }} </div>
               <hr>
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Sodium: </span> {{ content.sodium }} </div>
-              <hr>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.sodium_dv }} </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Potassium: </span> {{ content.potassium }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.potassium_dv }} </div>
+                  </div>
+              </div>
+                  <hr>
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Total Carbohydrate: </span> {{ content.total_carbohydrate }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.total_carbohydrate_dv }} </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Dietary Fiber: </span> {{ content.dietary_fiber }} </div>
-              <div class="panel-simple"> <span class='attribute'> Sugars: </span> {{ content.sugars }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.dietary_fiber_dv }} </div>
+                  </div>
+              </div>
+              <div class="panel-simple"> <span class='attribute' id="sugar"> Sugars: </span> {{ content.sugars }} </div>
               <hr>
+              <div class="row">
+                  <div class="col-sm-6">
               <div class="panel-simple"> <span class='attribute'> Protein: </span> {{ content.protein }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.protein_dv }} </div>
+                  </div>
+              </div>
+                  
               <hr>
               <div class="panel-simple"> <span class='attribute'> Vitamin A: </span> {{ content.vitaminA }} </div>
               <div class="panel-simple"> <span class='attribute'> Vitamin C: </span> {{ content.vitaminC }} </div>
@@ -159,7 +236,7 @@
                   <h4> Total Fat </h4><input type="text" class="form-control" ng-model="content.total_fat" placeholder="Total Fat" required/>
                         </div>
                             <div class="col-sm-6">
-                                <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.calories_fat_dv" placeholder="Total Fat" required/>
+                                <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_fat_dv" placeholder="Total Fat" required/>
                           </div>
                       </div>
                 </div>
