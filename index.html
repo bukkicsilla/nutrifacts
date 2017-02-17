@@ -46,13 +46,13 @@
              </div>
             </div>
     <!-- add new item for me -->
-        <div class="col-sm-3"> 
+        <!--<div class="col-sm-3"> 
              <div class="panel panel-default">
                <div class="panel-heading">
                 <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>  Create a new food item  </h3>
                </div>
             </div>
-            </div>
+            </div>-->
             
         </div>
         
@@ -189,28 +189,28 @@
             
           <form name="editor" class="panel panel-default" ng-show="editing">
             <div class="panel-heading">
-              <h3 class="panel-title"><input type="text" class="form-control" ng-model="content.title" placeholder="New Item" required /></h3>
+              <h3 class="panel-title"><input type="text" class="form-control" ng-model="content.title" placeholder="New Item*" required /></h3>
             </div>
             <div class="panel-body">
               <div class="row">
                   
                   <!-- put image path for me -->
-                  <div class="col-sm-10">
+                  <!--<div class="col-sm-10">
                   <h5> Image Path </h5>
                   <input type="text" class="form-control" ng-model="content.image_path" placeholder="Image path"/>
-                </div>
+                </div>-->
                   
                   <div class="col-sm-10">
                     <div class="row">
                         <div class="col-sm-6">
                   <h4> Serving Size </h4>
-                            <input type="text" class="form-control" ng-model="content.serving_size" placeholder="Serving Size" required/>
+                            <input type="text" class="form-control" ng-model="content.serving_size" placeholder="Serving Size*" required/>
                         </div>
                             <!--</div>
                   <div class="col-sm-10">-->
                         <div class="col-sm-6">
                   <h4> Serving per Container </h4>
-                    <input  type="text" class="form-control" ng-model="content.serving_per_container" placeholder="Serving per Container" required/>
+                    <input  type="text" class="form-control" ng-model="content.serving_per_container" placeholder="Serving per Container"/>
                         </div>
                       </div>        
                 </div>
@@ -220,11 +220,11 @@
                       <div class="row">
                         <div class="col-sm-6">
                            <h4> Calories </h4>
-                  <input type="text" class="form-control" ng-model="content.calories" placeholder="Calories" required/>
+                  <input type="text" class="form-control" ng-model="content.calories" placeholder="Calories*" required/>
                           </div>
                           <div class="col-sm-6">
                            <h4> Calories from Fat </h4>
-                  <input type="text" class="form-control" ng-model="content.calories_fat" placeholder="Calories from Fat" required/>
+                  <input type="text" class="form-control" ng-model="content.calories_fat" placeholder="Calories from Fat"/>
                           </div>
                       </div>
                 </div>
@@ -233,10 +233,10 @@
                   <div class="col-sm-10">
                       <div class="row">
                         <div class="col-sm-6">
-                  <h4> Total Fat </h4><input type="text" class="form-control" ng-model="content.total_fat" placeholder="Total Fat" required/>
+                  <h4> Total Fat </h4><input type="text" class="form-control" ng-model="content.total_fat" placeholder="Total Fat*" required/>
                         </div>
                             <div class="col-sm-6">
-                                <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_fat_dv" placeholder="Total Fat" required/>
+                                <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_fat_dv" placeholder="Total Fat"/>
                           </div>
                       </div>
                 </div>
@@ -246,15 +246,15 @@
                           <div class="col-sm-6">
                              <div class="row">
                                  <div class="col-sm-6">
-                             <h4> Saturated Fat </h4><input type="text" class="form-control" ng-model="content.saturated_fat" placeholder="Saturated Fat" required/>
+                             <h4> Saturated Fat </h4><input type="text" class="form-control" ng-model="content.saturated_fat" placeholder="Saturated Fat"/>
                                  </div>
                                  <div class="col-sm-6">
-                             <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.saturated_fat_dv" placeholder="Saturated Fat" required/>
+                             <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.saturated_fat_dv" placeholder="Saturated Fat"/>
                                  </div>
                               </div>
                           </div>
                           <div class="col-sm-6">
-                             <h4> Trans Fat </h4><input type="text" class="form-control" ng-model="content.trans_fat" placeholder="Trans Fat" required/>
+                             <h4> Trans Fat </h4><input type="text" class="form-control" ng-model="content.trans_fat" placeholder="Trans Fat*" required/>
                            </div>
                         </div>
                   </div>
@@ -262,10 +262,10 @@
                   <div class="col-sm-10">
                       <div class="row">
                           <div class="col-sm-6">
-                             <h4> Polyunsaturated Fat </h4><input type="text" class="form-control" ng-model="content.polyunsaturated_fat" placeholder="Polyunsaturated Fat" required/>
+                             <h4> Polyunsaturated Fat </h4><input type="text" class="form-control" ng-model="content.polyunsaturated_fat" placeholder="Polyunsaturated Fat"/>
                           </div>
                           <div class="col-sm-6">
-                             <h4> Monounsaturated Fat </h4><input type="text" class="form-control" ng-model="content.monounsaturated_fat" placeholder="Monounsaturated Fat" required/>
+                             <h4> Monounsaturated Fat </h4><input type="text" class="form-control" ng-model="content.monounsaturated_fat" placeholder="Monounsaturated Fat"/>
                            </div>
                         </div>
                   </div>
@@ -274,11 +274,11 @@
                       <div class="row">
                           <div class="col-sm-6">
                   <h4> Cholesterol </h4>
-                  <input type="text" class="form-control"  ng-model="content.cholesterol" placeholder="Cholesterol" required/>
+                  <input type="text" class="form-control"  ng-model="content.cholesterol" placeholder="Cholesterol*" required/>
                           </div>
                           <div class="col-sm-6">
                   <h4> % Daily Value </h4>
-                  <input type="text" class="form-control"  ng-model="content.cholesterol_dv" placeholder="Cholesterol" required/>
+                  <input type="text" class="form-control"  ng-model="content.cholesterol_dv" placeholder="Cholesterol"/>
                           </div>
                       </div>
                   </div>
@@ -289,10 +289,10 @@
                         <div class="col-sm-6">  
                           <div class="row">
                               <div class="col-sm-6">
-                  <h4> Sodium </h4><input type="text" class="form-control"  ng-model="content.sodium" placeholder="Sodium" required/>
+                  <h4> Sodium </h4><input type="text" class="form-control"  ng-model="content.sodium" placeholder="Sodium*" required/>
                           </div>
                           <div class="col-sm-6">
-                  <h4> % Daily Value </h4><input type="text" class="form-control"  ng-model="content.sodium_dv" placeholder="Sodium" required/>
+                  <h4> % Daily Value </h4><input type="text" class="form-control"  ng-model="content.sodium_dv" placeholder="Sodium"/>
                           </div>
                               
                             </div>
@@ -314,10 +314,10 @@
                   <div class="col-sm-10">
                       <div class="row">
                           <div class="col-sm-6">
-                  <h4> Total Carbohydrate </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate" placeholder="Total Carbohydrate" required/>
+                  <h4> Total Carbohydrate </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate" placeholder="Total Carbohydrate*" required/>
                           </div>
                           <div class="col-sm-6">
-                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate_dv" placeholder="Total Carbohydrate" required/>
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate_dv" placeholder="Total Carbohydrate"/>
                           </div>
                       </div>
                 </div>
@@ -328,32 +328,37 @@
                               
                               <div class="row">
                                   <div class="col-sm-6">
-                  <h4> Dietary Fiber </h4><input type="text" class="form-control" ng-model="content.dietary_fiber" placeholder="Dietary Fiber" required/>
+                  <h4> Dietary Fiber </h4><input type="text" class="form-control" ng-model="content.dietary_fiber" placeholder="Dietary Fiber"/>
                                   </div>
                                   <div class="col-sm-6">
-                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.dietary_fiber_dv" placeholder="Dietary Fiber" required/>
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.dietary_fiber_dv" placeholder="Dietary Fiber"/>
                                   </div>
                               </div>
                           </div>
                   <div class="col-sm-6">
-                  <h4> Sugars </h4><input type="text" class="form-control"  ng-model="content.sugars" placeholder="Sugars" required/>
+                  <h4> Sugars </h4><input type="text" class="form-control"  ng-model="content.sugars" placeholder="Sugars*" required/>
                           </div>
                       </div>
                   </div>
                   
                   <div class="col-sm-10">
-                  <h4> Protein </h4>
-                  <input type="text" class="form-control" ng-model="content.protein" placeholder="Protein" required/>
-                </div>
-                  
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Protein </h4><input type="text" class="form-control" ng-model="content.protein" placeholder="Protein*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.protein_dv" placeholder="Protein"/>
+                          </div>
+                      </div>
+                  </div>  
                   
                   <div class="col-sm-10">
                       <div class="row">
                           <div class="col-sm-6">
-                  <h4> Vitamin A </h4><input ctype="text" class="form-control"  ng-model="content.vitaminA" placeholder="Vitamin A" required/>
+                  <h4> Vitamin A </h4><input ctype="text" class="form-control"  ng-model="content.vitaminA" placeholder="Vitamin A"/>
                           </div>
                         <div class="col-sm-6">
-                  <h4> Vitamin C </h4><input type="text" class="form-control"  ng-model="content.vitaminC" placeholder="Vitamin C" required/>
+                  <h4> Vitamin C </h4><input type="text" class="form-control"  ng-model="content.vitaminC" placeholder="Vitamin C"/>
                        </div>
                       </div>
                   </div>
@@ -362,17 +367,17 @@
                   <div class="col-sm-10">
                       <div class="row">
                           <div class="col-sm-6">
-                  <h4> Calcium </h4><input class="form-control" ng-model="content.calcium" placeholder="Calcium" required/>
+                  <h4> Calcium </h4><input class="form-control" ng-model="content.calcium" placeholder="Calcium"/>
                          </div>
                           <div class="col-sm-6">
-                  <h4> Iron </h4><input class="form-control" ng-model="content.iron" placeholder="Iron" required/>
+                  <h4> Iron </h4><input class="form-control" ng-model="content.iron" placeholder="Iron"/>
                            </div>
                       </div>
                   </div>
                   
                   <div class="col-sm-10">
                   <h4> Ingredients </h4>
-                  <textarea class="form-control" rows="2" ng-model="content.ingredients" placeholder="Ingredients" required></textarea>
+                  <textarea class="form-control" rows="2" ng-model="content.ingredients" placeholder="Ingredients*" required></textarea>
                 </div>
               </div>
             </div>
