@@ -46,13 +46,13 @@
              </div>
             </div>
     <!-- add new item for me -->
-        <!--<div class="col-sm-3"> 
+        <div class="col-sm-3"> 
              <div class="panel panel-default">
                <div class="panel-heading">
                 <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>  Create a new food item  </h3>
                </div>
             </div>
-            </div>-->
+            </div>
             
         </div>
         
@@ -180,11 +180,11 @@
                   <span class='attribute'> Date: </span> {{content.date | date:'short'}} 
                </div>
           </div>
-            <!-- delete for me -->
-          <!--<div ng-hide="editing">
+            <!--delete for me -->
+          <div ng-hide="editing">
               <br><br>
             <button class="btn btn-danger  glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"> Delete Item!</button>
-          </div>-->    
+          </div>    
             
             
           <form name="editor" class="panel panel-default" ng-show="editing">
@@ -195,10 +195,10 @@
               <div class="row">
                   
                   <!-- put image path for me -->
-                  <!--<div class="col-sm-10">
+                  <div class="col-sm-10">
                   <h5> Image Path </h5>
                   <input type="text" class="form-control" ng-model="content.image_path" placeholder="Image path"/>
-                </div>-->
+                </div>
                   
                   <div class="col-sm-10">
                     <div class="row">
@@ -206,8 +206,6 @@
                   <h4> Serving Size </h4>
                             <input type="text" class="form-control" ng-model="content.serving_size" placeholder="Serving Size*" required/>
                         </div>
-                            <!--</div>
-                  <div class="col-sm-10">-->
                         <div class="col-sm-6">
                   <h4> Serving per Container </h4>
                     <input  type="text" class="form-control" ng-model="content.serving_per_container" placeholder="Serving per Container"/>
