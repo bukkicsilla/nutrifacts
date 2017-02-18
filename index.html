@@ -28,16 +28,27 @@
     <div class="container" ng-controller="NutriFactsController">
         
         <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Food Items
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
-          <li class="list-group-item" ng-repeat="item in nutrifacts" ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}<br />
-                <small>{{item.date | date:'short'}}</small></li>
+          <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title'" ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}
+                <!--<small>{{item.date | date:'short'}}</small>-->
+          </li>
     </ul>
    </div>
           </div>
+            
+            <!-- sort by different attributes -->
+            <!--<div class="col-sm-3">
+                <div class="panel panel-default">
+                 <div class="panel-heading">
+                    <h3 class="panel-title">  <input type="text" placeholder="Sort by" ng-model="sortCriteria"/></h3>
+                 </div>
+                </div>    
+            </div>-->
+            
             <div class="col-sm-3"> 
               <div class="panel panel-default">
                  <div class="panel-heading">
@@ -46,10 +57,10 @@
              </div>
             </div>
     <!-- add new item for me -->
-        <div class="col-sm-3"> 
+        <div class="col-sm-2"> 
              <div class="panel panel-default">
                <div class="panel-heading">
-                <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>  Create a new food item  </h3>
+                <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>  New  </h3>
                </div>
             </div>
             </div>
