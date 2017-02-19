@@ -4,7 +4,13 @@ angular.module('App')
   $scope.start = true;
   //$scope.image_path  = "images/start0";
   $scope.tab = 0;
-  $scope.abcCode = '';    
+  $scope.abcCode = '';
+  $scope.searchText = '';
+    
+  $scope.search = function(){
+      
+      $scope.abcCode = $scope.searchText;
+  };    
     
   $scope.getCode = function(l){
    
