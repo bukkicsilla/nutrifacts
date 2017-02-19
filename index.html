@@ -27,27 +27,9 @@
 
     <div class="container" ng-controller="NutriFactsController">
         
+        
+        
         <div class="row">
-        <div class="col-sm-3">
-          <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Food Items
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-          <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title'" ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}
-                <!--<small>{{item.date | date:'short'}}</small>-->
-          </li>
-    </ul>
-   </div>
-          </div>
-            
-            <!-- sort by different attributes -->
-            <!--<div class="col-sm-3">
-                <div class="panel panel-default">
-                 <div class="panel-heading">
-                    <h3 class="panel-title">  <input type="text" placeholder="Sort by" ng-model="sortCriteria"/></h3>
-                 </div>
-                </div>    
-            </div>-->
             
             <div class="col-sm-3"> 
               <div class="panel panel-default">
@@ -56,26 +38,79 @@
                    </div>
              </div>
             </div>
-    <!-- add new item for me -->
-        <div class="col-sm-2"> 
-             <div class="panel panel-default">
-               <div class="panel-heading">
-                <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>  New  </h3>
-               </div>
-            </div>
-            </div>
-            
+            <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{active:isAbc(0)}">
+                    <a ng-click="abc(0)"
+                     aria-controls="all"
+                     role="tab">All</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(1)}">
+                    <a ng-click="abc(1)"
+                     aria-controls="abc"
+                     role="tab">A-C</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(4)}">
+                    <a ng-click="abc(4)"
+                     aria-controls="def"
+                     role="tab">D-F</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(7)}">
+                    <a ng-click="abc(7)"
+                     aria-controls="ghi"
+                     role="tab">G-I</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(10)}">
+                    <a ng-click="abc(10)"
+                     aria-controls="jkl"
+                     role="tab">J-L</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(13)}">
+                     <a ng-click="abc(13)"
+                     aria-controls="mno"
+                     role="tab">M-O</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(16)}">
+                     <a ng-click="abc(16)"
+                     aria-controls="pqr"
+                     role="tab">P-R</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(19)}">
+                     <a ng-click="abc(19)"
+                     aria-controls="stu"
+                     role="tab">S-U</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(22)}">
+                     <a ng-click="abc(22)"
+                     aria-controls="vwxyz"
+                     role="tab">V-Z</a></li>
+                </ul>
         </div>
         
-        <br>
-      <div class="row">
-          
-        
-        
-          <div class="col-sm-4">
+            <div class="row">
+                
+             <div class="col-sm-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>All Food Items</h3> 
+            </div>
+            <div class="panel-body">
+              <p ng-if="!nutrifacts.length">No food items</p>
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title' " ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}<br />
+                <!--<small>{{item.date | date:'short'}}</small></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+            
+        <!--<div class="col-sm-4">
+          <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Food Items
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+          <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title'  " ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}
+                <small>{{item.date | date:'short'}}</small>
+          </li>
+    </ul>
+   </div>
+          </div>-->
+            
+          <!--<div class="col-sm-4">
           <img src="{{image_path}}" ng-show="start" width="80%"/>
           <img src="{{content.image_path}}" ng-hide="start" width="72%"/>      
-          </div>
+          </div>-->
         <div class="col-sm-8">
           <div class="panel panel-default" ng-hide="editing">
             <div class="panel-heading">
@@ -396,6 +431,7 @@
             </div>
           </form>
             
+        
         </div>
       </div>
     </div>

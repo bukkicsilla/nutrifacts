@@ -3,7 +3,14 @@ angular.module('App')
   $scope.editing = false;
   $scope.start = true;
   $scope.image_path  = "images/start0";
+  $scope.tab = 0;
+  $scope.abcCode = '';    
     
+  $scope.abc = function (settab){
+      
+    
+  };
+  
   $scope.view = function (index) {
     $scope.editing = false;
     $scope.start = false;
