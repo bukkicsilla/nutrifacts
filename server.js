@@ -153,9 +153,9 @@ app.delete('/nutrifacts/:id', function (req, res) {
 
 
 
-app.listen(3000, function () {
+/*app.listen(3000, function () {
   console.log('Server started. Open http://localhost:3000 in your browser.');
-});
+});*/
 
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {

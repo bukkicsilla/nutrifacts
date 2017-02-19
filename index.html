@@ -88,8 +88,9 @@
             <div class="panel-body">
               <p ng-if="!nutrifacts.length">No food items</p>
               <ul class="list-group">
-                <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title' " ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}<br />
+                <li class="list-group-item" ng-repeat="item in nutrifacts  | orderBy : 'title' | filter:abcCode"  ng-click="view(item.title)" ng-class="{active: item.id == content.id}">{{item.title}}<br />
                 <!--<small>{{item.date | date:'short'}}</small></li>-->
+                <!--<small>{{item.code}}</small></li>-->
               </ul>
             </div>
           </div>
@@ -241,10 +242,10 @@
               <div class="row">
                   
                   <!-- put image path for me -->
-                  <div class="col-sm-10">
+                  <!--<div class="col-sm-10">
                   <h5> Image Path </h5>
                   <input type="text" class="form-control" ng-model="content.image_path" placeholder="Image path"/>
-                </div>
+                </div>-->
                   
                   <div class="col-sm-10">
                     <div class="row">
