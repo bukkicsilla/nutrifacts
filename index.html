@@ -112,7 +112,7 @@
           <img src="{{image_path}}" ng-show="start" width="80%"/>
           <img src="{{content.image_path}}" ng-hide="start" width="72%"/>      
           </div>-->
-        <div class="col-sm-8">
+        <div class="col-sm-9">
           <div class="panel panel-default" ng-hide="editing">
             <div class="panel-heading">
               <h3 class="panel-title"> <span class='attribute'> Item: </span>{{content.title}} 
@@ -217,21 +217,23 @@
               <hr>
               <div class="panel-simple"> <span class='attribute'> Vitamin A: </span> {{ content.vitaminA }} </div>
               <div class="panel-simple"> <span class='attribute'> Vitamin C: </span> {{ content.vitaminC }} </div>
+              <div class="panel-simple"> <span class='attribute'> Vitamin D: </span> {{ content.vitaminD }} </div>
+              <div class="panel-simple"> <span class='attribute'> Vitamin K: </span> {{ content.vitaminK }} </div>
               <div class="panel-simple"> <span class='attribute'> Calcium: </span> {{ content.calcium }} </div>
               <div class="panel-simple"> <span class='attribute'> Iron: </span> {{ content.iron }} </div>          
-              <hr>
-              <div class="panel-simple"> <span class='attribute'> Ingredients: </span> {{ content.ingredients }} </div>
-              <br>
+              <br/>
+              <div class="panel-footer"> <span class='attribute'> Ingredients: </span> {{ content.ingredients }} </div>
+              <!--<br>
               
               <div class="panel-footer"> 
                   <span class='attribute'> Date: </span> {{content.date | date:'short'}} 
-               </div>
+               </div>-->
           </div>
             <!--delete for me -->
-          <div ng-hide="editing">
+          <!--<div ng-hide="editing">
               <br><br>
             <button class="btn btn-danger  glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"> Delete Item!</button>
-          </div>    
+          </div>-->    
             
             
           <form name="editor" class="panel panel-default" ng-show="editing">
@@ -404,6 +406,17 @@
                           </div>
                         <div class="col-sm-6">
                   <h4> Vitamin C </h4><input type="text" class="form-control"  ng-model="content.vitaminC" placeholder="Vitamin C"/>
+                       </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Vitamin D </h4><input ctype="text" class="form-control"  ng-model="content.vitaminD" placeholder="Vitamin K"/>
+                          </div>
+                        <div class="col-sm-6">
+                  <h4> Vitamin K </h4><input type="text" class="form-control"  ng-model="content.vitaminK" placeholder="Vitamin D"/>
                        </div>
                       </div>
                   </div>

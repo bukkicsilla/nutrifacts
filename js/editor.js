@@ -114,6 +114,8 @@ angular.module('App')
       protein_dv:'',    
       vitaminA:'',
       vitaminC:'',
+      vitaminD:'',
+      vitaminK:'',
       calcium:'',
       iron:'', 
       ingredients: ''
