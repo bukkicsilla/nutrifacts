@@ -36,7 +36,7 @@ textarea.editor {
 h4{
     
     //color: crimson;
-    color:whitesmoke;
+    color:darkslateblue;
 }
 
 #sugar{
@@ -45,20 +45,37 @@ h4{
     font-weight: bold;
     font-size:18px;
 }
-
+#sugar-form{
+    color: crimson;
+}
 .navbar{
- background-color: darkblue;
+ background-color:darkslateblue;
     
 }
 .panel > .panel-heading{
-  background-color:cornflowerblue;
+  background-color:azure;
+   border: 0;
     
 }
+.panel-footer{
+  background-color: azure;
+  border:0;    
+}
 .panel{
- background-color:darkblue;    
+ background-color:azure;    
+ border: 0;
     
 }
 ul{
     background-color:cornflowerblue;
     
+    
+}
+.nav > li.active > a{
+    background-color: cornflowerblue;
+    color: darkblue;
+}
+.nav > li.active > a:hover, .nav > li.active > a:focus, .nav > li > a:hover {
+    background-color:azure;
+    border:0;
 }

@@ -35,7 +35,7 @@
               <div class="panel panel-default">
                  <div class="panel-heading">
                 <!--<h3 class="panel-title"><input type="text" ng-model="searchText" placeholder="Search food item"/><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-search" ng-click="search()"></button> </h3>-->
-                     <h3 class="panel-title"><input type="text" ng-model="searchText" placeholder="Search food item"/><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-search"></button> </h3>
+                     <h3 class="panel-title"><input type="text" ng-model="searchText" placeholder=""/><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-search"></button> </h3>
                    </div>
              </div>
             </div>
@@ -91,7 +91,7 @@
             <div class="panel-body">
               <p ng-if="!nutrifacts.length">No food items</p>
               <ul class="list-group">
-                <li class="list-group-item" ng-repeat="item in nutrifacts  | orderBy : 'title' | filter:abcCode | filter: searchText"  ng-click="view(item.title)" ng-class="{active: item.id == content.id}">{{item.title}}
+                <li class="list-group-item" ng-repeat="item in nutrifacts  | orderBy : 'title' | filter:abcCode | filter: searchText"  ng-click="view(item.title)" ng-class="{active: item.id == content.id active}">{{item.title}}
                 <!--<small>{{item.date | date:'short'}}</small></li>-->
                 <!--<small>{{item.code}}</small></li>-->
               </ul>
@@ -117,8 +117,8 @@
           </div>-->
         <div class="col-sm-9">
           <div class="panel panel-default" ng-hide="editing">
-            <div class="panel-heading bluecolor">
-              <h3 class="panel-title"> <span> Item: </span>{{content.title}} 
+            <div class="panel-heading">
+              <h3 class="panel-title"> <span class="attribute"> Item: </span>{{content.title}} 
                   
                   <button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-pencil" ng-click="editing = true" ng-hide="start"></button></h3>
             </div>
@@ -386,7 +386,7 @@
                               </div>
                           </div>
                   <div class="col-sm-6">
-                  <h4> Sugars </h4><input type="text" class="form-control"  ng-model="content.sugars" placeholder="Sugars*" required/>
+                  <h4 id="sugar-form"> Sugars </h4><input type="text" class="form-control" ng-model="content.sugars" placeholder="Sugars*" required/>
                           </div>
                       </div>
                   </div>
