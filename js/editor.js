@@ -120,10 +120,10 @@ angular.module('App')
       protein_dv:'',    
       vitaminA:'',
       vitaminC:'',
-      vitaminD:'',
+      folicacid:'',
       vitaminK:'',
       calcium:'',
-      iron:'', 
+      iron:'',
       ingredients: ''
     };
   };

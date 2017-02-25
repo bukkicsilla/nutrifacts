@@ -4,6 +4,9 @@ body {
   //background-color:#e2c8e1;
     background-color:cornflowerblue;
 }
+body#index{
+     background-color:#303f9f;;
+}
 [ng-click] {
   cursor: pointer;
 }
@@ -19,6 +22,13 @@ textarea.editor {
   border: 1px solid #ccc;
   border-radius: 4px;
 }*/
+.jumbotron {
+  margin: 0px auto;
+  padding: 70px 30px;
+  //background: #7986CB;
+    background-color: cornflowerblue;
+  color: floralwhite;
+}
 
 .attribute{
     color: #428bca;
@@ -42,15 +52,22 @@ h4{
 #sugar{
     
     //color: mediumblue;
-    font-weight: bold;
-    font-size:18px;
+    //font-weight: bold;
+    //font-size:18px;
 }
 #sugar-form{
-    color: crimson;
+    //color: crimson;
 }
+
+
 .navbar{
- background-color:darkslateblue;
+ //background-color:darkslateblue;
+ background-color: #303f9f;
+ border-color:cornflowerblue;
     
+}
+#navindex{
+    border-color:#303f9f;
 }
 .panel > .panel-heading{
   background-color:azure;
@@ -67,15 +84,20 @@ h4{
     
 }
 ul{
-    background-color:cornflowerblue;
+    //background-color:cornflowerblue;
     
     
 }
 .nav > li.active > a{
     background-color: cornflowerblue;
-    color: darkblue;
+    color: darkslateblue;
 }
 .nav > li.active > a:hover, .nav > li.active > a:focus, .nav > li > a:hover {
     background-color:azure;
     border:0;
+    color:black;
+}
+.nav > li > a {
+    color:darkblue;
+    
 }

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nutrition Facts</title>
+
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+
+  <body>
+
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">Nutrition Facts</a>
+        </div>
+      </div>
+    </nav>-->
+
+    <div class="container" ng-controller="NutriFactsController">
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                 
+                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Nutrition facts</a>
+                </div>
+               
+                <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="">Food Items</a></li>
+                    <li><a class="navbar-brand" href="statistics.html">Statistics</a></li>
+                    <li><a class="navbar-brand" href="definitions.html">Definitions</a></li>
+                    <li><a class="navbar-brand" href="about.html">About</a></li>
+                </ul>
+               </div>
+            </div>
+        </nav>         
+        
+        <div class="row">
+            
+            <div class="col-sm-3"> 
+              <div class="panel panel-default">
+                 <div class="panel-heading">
+                <!--<h3 class="panel-title"><input type="text" ng-model="searchText" placeholder="Search food item"/><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-search" ng-click="search()"></button> </h3>-->
+                     <h3 class="panel-title"><input type="text" ng-model="searchText" placeholder=""/><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-search"></button> </h3>
+                   </div>
+             </div>
+            </div>
+            <div class="col-sm-9">
+            <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" ng-class="{active:isAbc(0)}">
+                    <a ng-click="abc(0)"
+                     aria-controls="all"
+                     role="tab">All</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(1)}">
+                    <a ng-click="abc(1)"
+                     aria-controls="abc"
+                     role="tab">A-C</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(4)}">
+                    <a ng-click="abc(4)"
+                     aria-controls="def"
+                     role="tab">D-F</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(7)}">
+                    <a ng-click="abc(7)"
+                     aria-controls="ghi"
+                     role="tab">G-I</a></li>
+                    <li role="presentation" ng-class="{active:isAbc(10)}">
+                    <a ng-click="abc(10)"
+                     aria-controls="jkl"
+                     role="tab">J-L</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(13)}">
+                     <a ng-click="abc(13)"
+                     aria-controls="mno"
+                     role="tab">M-O</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(16)}">
+                     <a ng-click="abc(16)"
+                     aria-controls="pqr"
+                     role="tab">P-R</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(19)}">
+                     <a ng-click="abc(19)"
+                     aria-controls="stu"
+                     role="tab">S-U</a></li>
+                     <li role="presentation" ng-class="{active:isAbc(22)}">
+                     <a ng-click="abc(22)"
+                     aria-controls="vwxyz"
+                     role="tab">V-Z</a></li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="row">
+                
+             <div class="col-sm-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-plus" ng-click="create()"></button>All Food Items</h3> 
+            </div>
+            <div class="panel-body">
+              <p ng-if="!nutrifacts.length">No food items</p>
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in nutrifacts  | orderBy : 'title' | filter:abcCode | filter: searchText"  ng-click="view(item.title)" ng-class="{active: item.id == content.id active}">{{item.title}}
+                <!--<small>{{item.date | date:'short'}}</small></li>-->
+                <!--<small>{{item.code}}</small></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+            
+        <!--<div class="col-sm-4">
+          <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All Food Items
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+          <li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title'  " ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}
+                <small>{{item.date | date:'short'}}</small>
+          </li>
+    </ul>
+   </div>
+          </div>-->
+            
+          <!--<div class="col-sm-4">
+          <img src="{{image_path}}" ng-show="start" width="80%"/>
+          <img src="{{content.image_path}}" ng-hide="start" width="72%"/>      
+          </div>-->
+        <div class="col-sm-9">
+          <div class="panel panel-default" ng-hide="editing">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <span class="attribute"> Item: </span>{{content.title}} 
+                  
+                  <button class="btn btn-primary btn-xs pull-right glyphicon glyphicon-pencil" ng-click="editing = true" ng-hide="start"></button></h3>
+            </div>
+              <hr>
+               <div class="row">
+                   <div class="col-sm-6">
+                   <div class="panel-simple"> <span class='attribute'> Serving Size: </span> {{ content.serving_size }} </div>
+                   </div>
+                   <div class="col-sm-6">
+                       <div class="panel-simple"> <span class='attribute'> Serving per Container: </span> {{ content.serving_per_container }}  </div>
+                   </div>
+              </div>
+              <hr>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Calories: </span> {{ content.calories }} </div>
+                  </div>
+                   <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Calories from Fat: </span> {{ content.calories_fat }} </div>
+                  </div>
+              </div>
+              <hr>
+            
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Total Fat: </span> {{ content.total_fat }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.total_fat_dv }} </div>
+                  </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Saturated Fat: </span> {{ content.saturated_fat }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.saturated_fat_dv }} </div>
+                  </div>
+              </div>
+              
+              <div class="panel-simple"> <span class='attribute'> Trans Fat: </span> {{ content.trans_fat }} </div>
+             
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Cholesterol: </span> {{ content.cholesterol }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.cholesterol_dv }} </div>
+                  </div>
+                  </div>
+              <div class="panel-simple"> <span class='attribute'> Polyunsaturated Fat: </span> {{ content.polyunsaturated_fat }} </div>
+              <div class="panel-simple"> <span class='attribute'> Monounsaturated Fat: </span> {{ content.monounsaturated_fat }} </div>
+              <hr>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Sodium: </span> {{ content.sodium }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.sodium_dv }} </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Potassium: </span> {{ content.potassium }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.potassium_dv }} </div>
+                  </div>
+              </div>
+                  <hr>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Total Carbohydrate: </span> {{ content.total_carbohydrate }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.total_carbohydrate_dv }} </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Dietary Fiber: </span> {{ content.dietary_fiber }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.dietary_fiber_dv }} </div>
+                  </div>
+              </div>
+              <div class="panel-simple"> <span class='attribute' id="sugar"> Sugars: </span> {{ content.sugars }} </div>
+              <hr>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Protein: </span> {{ content.protein }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> % Daily Value: </span> {{ content.protein_dv }} </div>
+                  </div>
+              </div>
+                  
+              <hr>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Vitamin A: </span> {{ content.vitaminA }} </div>
+                  </div>
+                   <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Vitamin C: </span> {{ content.vitaminC }} </div>
+                   </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Folic Acid: </span> {{ content.folicacid }} </div>
+                  </div>
+                      <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Vitamin D: </span> {{ content.vitaminD }} </div>
+                     </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Calcium: </span> {{ content.calcium }} </div>
+                  </div>
+                  <div class="col-sm-6">
+              <div class="panel-simple"> <span class='attribute'> Iron: </span> {{ content.iron }} </div>          
+                   </div>
+              </div>
+                <hr/>
+              <div class="panel-footer"> <span class='attribute'> Ingredients: </span> {{ content.ingredients }} </div>
+              <!--<br>
+              
+              <div class="panel-footer"> 
+                  <span class='attribute'> Date: </span> {{content.date | date:'short'}} 
+               </div>-->
+          </div>
+            <!--delete for me -->
+          <!--<div ng-hide="editing">
+              <br><br>
+            <button class="btn btn-danger  glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"> Delete Item!</button>
+          </div>-->    
+            
+            
+          <form name="editor" class="panel panel-default" ng-show="editing">
+            <div class="panel-heading">
+              <h3 class="panel-title"><input type="text" class="form-control" ng-model="content.title" placeholder="New Item*" required /></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                  
+                  <!-- put image path for me -->
+                  <!--<div class="col-sm-10">
+                  <h5> Image Path </h5>
+                  <input type="text" class="form-control" ng-model="content.image_path" placeholder="Image path"/>
+                </div>-->
+                  
+                  <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-6">
+                  <h4> Serving Size </h4>
+                            <input type="text" class="form-control" ng-model="content.serving_size" placeholder="Serving Size*" required/>
+                        </div>
+                        <div class="col-sm-6">
+                  <h4> Serving per Container </h4>
+                    <input  type="text" class="form-control" ng-model="content.serving_per_container" placeholder="Serving per Container"/>
+                        </div>
+                      </div>        
+                </div>
+                  
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                        <div class="col-sm-6">
+                           <h4> Calories </h4>
+                  <input type="text" class="form-control" ng-model="content.calories" placeholder="Calories*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                           <h4> Calories from Fat </h4>
+                  <input type="text" class="form-control" ng-model="content.calories_fat" placeholder="Calories from Fat"/>
+                          </div>
+                      </div>
+                </div>
+                  
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                        <div class="col-sm-6">
+                  <h4> Total Fat </h4><input type="text" class="form-control" ng-model="content.total_fat" placeholder="Total Fat*" required/>
+                        </div>
+                            <div class="col-sm-6">
+                                <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_fat_dv" placeholder="Total Fat"/>
+                          </div>
+                      </div>
+                </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                             <div class="row">
+                                 <div class="col-sm-6">
+                             <h4> Saturated Fat </h4><input type="text" class="form-control" ng-model="content.saturated_fat" placeholder="Saturated Fat"/>
+                                 </div>
+                                 <div class="col-sm-6">
+                             <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.saturated_fat_dv" placeholder="Saturated Fat"/>
+                                 </div>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                             <h4> Trans Fat </h4><input type="text" class="form-control" ng-model="content.trans_fat" placeholder="Trans Fat*" required/>
+                           </div>
+                        </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                             <h4> Polyunsaturated Fat </h4><input type="text" class="form-control" ng-model="content.polyunsaturated_fat" placeholder="Polyunsaturated Fat"/>
+                          </div>
+                          <div class="col-sm-6">
+                             <h4> Monounsaturated Fat </h4><input type="text" class="form-control" ng-model="content.monounsaturated_fat" placeholder="Monounsaturated Fat"/>
+                           </div>
+                        </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Cholesterol </h4>
+                  <input type="text" class="form-control"  ng-model="content.cholesterol" placeholder="Cholesterol*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                  <h4> % Daily Value </h4>
+                  <input type="text" class="form-control"  ng-model="content.cholesterol_dv" placeholder="Cholesterol"/>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  
+                  <div class="col-sm-11">
+                      <div class="row">
+                        <div class="col-sm-6">  
+                          <div class="row">
+                              <div class="col-sm-6">
+                  <h4> Sodium </h4><input type="text" class="form-control"  ng-model="content.sodium" placeholder="Sodium*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control"  ng-model="content.sodium_dv" placeholder="Sodium"/>
+                          </div>
+                              
+                            </div>
+                          </div>
+                        
+                          <div class="col-sm-6">
+                              <div class="row">
+                                  <div class="col-sm-6">
+                  <h4> Potassium </h4><input type="text" class="form-control" ng-model="content.potassium" placeholder="Potassium"/>
+                                  </div>
+                                  <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.potassium_dv" placeholder="Potassium"/>
+                                  </div>
+                              </div>
+                          </div>  
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Total Carbohydrate </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate" placeholder="Total Carbohydrate*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.total_carbohydrate_dv" placeholder="Total Carbohydrate"/>
+                          </div>
+                      </div>
+                </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              
+                              <div class="row">
+                                  <div class="col-sm-6">
+                  <h4> Dietary Fiber </h4><input type="text" class="form-control" ng-model="content.dietary_fiber" placeholder="Dietary Fiber"/>
+                                  </div>
+                                  <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.dietary_fiber_dv" placeholder="Dietary Fiber"/>
+                                  </div>
+                              </div>
+                          </div>
+                  <div class="col-sm-6">
+                  <h4 id="sugar-form"> Sugars </h4><input type="text" class="form-control" ng-model="content.sugars" placeholder="Sugars*" required/>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Protein </h4><input type="text" class="form-control" ng-model="content.protein" placeholder="Protein*" required/>
+                          </div>
+                          <div class="col-sm-6">
+                  <h4> % Daily Value </h4><input type="text" class="form-control" ng-model="content.protein_dv" placeholder="Protein"/>
+                          </div>
+                      </div>
+                  </div>  
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Vitamin A </h4><input ctype="text" class="form-control"  ng-model="content.vitaminA" placeholder="Vitamin A"/>
+                          </div>
+                        <div class="col-sm-6">
+                  <h4> Vitamin C </h4><input type="text" class="form-control"  ng-model="content.vitaminC" placeholder="Vitamin C"/>
+                       </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Folic Acid </h4><input ctype="text" class="form-control"  ng-model="content.folicacid" placeholder="Folic Acid"/>
+                          </div>
+                        <div class="col-sm-6">
+                  <h4> Vitamin D </h4><input type="text" class="form-control"  ng-model="content.vitaminD" placeholder="Vitamin D"/>
+                       </div>
+                      </div>
+                  </div>
+                  
+                  
+                  <div class="col-sm-10">
+                      <div class="row">
+                          <div class="col-sm-6">
+                  <h4> Calcium </h4><input class="form-control" ng-model="content.calcium" placeholder="Calcium"/>
+                         </div>
+                          <div class="col-sm-6">
+                  <h4> Iron </h4><input class="form-control" ng-model="content.iron" placeholder="Iron"/>
+                           </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-10">
+                  <h4> Ingredients </h4>
+                  <textarea class="form-control" rows="2" ng-model="content.ingredients" placeholder="Ingredients*" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <button class="btn btn-primary glyphicon glyphicon-ok" ng-click="save()" ng-disabled="editor.$invalid"></button>
+              <!--<button class="btn btn-danger pull-right glyphicon glyphicon-remove" ng-click="remove()" ng-if="content.id"></button>-->
+            </div>
+          </form>
+            
+        
+        </div>
+      </div>
+    </div>
+
+    <!--<script src="bower_components/angular/angular.min.js"></script>-->
+    
+      <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+    <script src="js/app.js"></script>
+    <script src="js/editor.js"></script>
+    
+  </body>
+</html>
