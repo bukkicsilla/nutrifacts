@@ -12,6 +12,66 @@ angular.module('App')
       $scope.abcCode = $scope.searchText;
   };    
     
+    
+  $scope.getAverage =  function(){
+      let n = $scope.nutrifacts.length;
+      var sum = 0;
+      for (var i = 0; i < n; i++){
+          sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
+      }
+      /*let values = $scope.nutrifacts.sugars;
+      let sum = values.reduce((previous, current) => current += previous);
+      let avg = sum / n;*/
+    return (sum/n).toFixed(2);
+      
+  }
+  
+  $scope.getMedian =  function(){
+      let n = $scope.nutrifacts.length;
+      //get sorted array
+      var values = [];
+      for (var i = 0; i < n; i++){
+          values.push(parseInt($scope.nutrifacts[i].sugars, 10));
+          
+      }
+      values.sort((a, b) => a - b);
+      
+      if (n % 2 == 0){
+         return 0.5*(values[(n-2)/2] + values[n/2]);
+      }
+      else{
+          return values[(n-1)/2];
+      }
+  }
+  
+  $scope.getStandardDeviation = function(){
+     let n =  $scope.nutrifacts.length;
+      var sum = 0.0;
+      let aver = $scope.getAverage();
+      for (var i = 0; i < n; i++){
+          sum += Math.pow((parseFloat($scope.nutrifacts[i].sugars, 10) - aver), 2 );
+      }
+      if (n > 1){
+      let st = sum/(n-1);
+           return Math.sqrt(st).toFixed(2);
+             //return st.toFixed(2);
+      }
+      else {return 0.0;}
+      
+  }
+    
+  $scope.getStandardScore = function(){
+      let n =  $scope.nutrifacts.length;
+      let aver = $scope.getAverage();
+      let stdev = $scope.getStandardDeviation();
+      for (var i = 0; i < n; i++){
+        $scope.nutrifacts[i].sugars_ss =  ((((parseFloat($scope.nutrifacts[i].sugars)) - aver)/stdev).toFixed(2)).toString();
+        $scope.nutrifacts[i].sugars_ds =  (parseFloat($scope.nutrifacts[i].sugars_ss))*10 + 50;          
+              
+      }
+      
+  }
+    
   $scope.getCode = function(l){
    
      switch (l) {
@@ -116,6 +176,8 @@ angular.module('App')
       dietary_fiber:'',
       dietary_fiber_dv:'',
       sugars:'',
+      sugars_ss:'',
+      sugars_ds:'',
       protein:'',
       protein_dv:'',    
       vitaminA:'',
