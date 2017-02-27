@@ -13,49 +13,26 @@ angular.module('App')
   };    
     
     
-  $scope.getAverage =  function(str){
+  $scope.getAverage =  function(){
       let n = $scope.nutrifacts.length;
       var sum = 0;
-       switch (str) {
-         case 'sugars': 
-          for (var i = 0; i < n; i++){
-              sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
-           }
-           break;
-         case 'cholesterol':
-          for (var i = 0; i < n; i++){
-              sum += parseInt($scope.nutrifacts[i].cholesterol, 10); //don't forget to add the base 
-           }
-           break;
-           case 'protein':
-               for (var i = 0; i < n; i++){
-              sum += parseInt($scope.nutrifacts[i].protein, 10); //don't forget to add the base 
-           }
-           break;
-          return (sum/n).toFixed(2);
+      for (var i = 0; i < n; i++){
+          sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
+      }
+      /*let values = $scope.nutrifacts.sugars;
+      let sum = values.reduce((previous, current) => current += previous);
+      let avg = sum / n;*/
+    return (sum/n).toFixed(2);
       
   }
   
-  $scope.getMedian =  function(str){
+  $scope.getMedian =  function(){
       let n = $scope.nutrifacts.length;
       //get sorted array
       var values = [];
-      switch(str){
-          case 'sugars':
-            for (var i = 0; i < n; i++){
-                values.push(parseInt($scope.nutrifacts[i].sugars, 10));
-          }
-          break;
-          case 'cholesterol':
-            for (var i = 0; i < n; i++){
-                values.push(parseInt($scope.nutrifacts[i].cholesterol, 10));
-          }
-          break;
-          case 'protein':
-            for (var i = 0; i < n; i++){
-                values.push(parseInt($scope.nutrifacts[i].protein, 10));
-          }
-          break;
+      for (var i = 0; i < n; i++){
+          values.push(parseInt($scope.nutrifacts[i].sugars, 10));
+          
       }
       values.sort((a, b) => a - b);
       
@@ -67,55 +44,33 @@ angular.module('App')
       }
   }
   
-  $scope.getStandardDeviation = function(str){
+  $scope.getStandardDeviation = function(){
      let n =  $scope.nutrifacts.length;
       var sum = 0.0;
-      let aver = $scope.getAverage(str);
-      switch(str){
-          case 'sugars':
-         for (var i = 0; i < n; i++){
+      let aver = $scope.getAverage();
+      for (var i = 0; i < n; i++){
           sum += Math.pow((parseFloat($scope.nutrifacts[i].sugars, 10) - aver), 2 );
-      }
-              break;
-          case 'cholesterol':
-         for (var i = 0; i < n; i++){
-          sum += Math.pow((parseFloat($scope.nutrifacts[i].cholesterol, 10) - aver), 2 );
-      }
-              break;
-              case 'protein':
-         for (var i = 0; i < n; i++){
-          sum += Math.pow((parseFloat($scope.nutrifacts[i].protein, 10) - aver), 2 );
-      }
-              break;
-              
       }
       if (n > 1){
       let st = sum/(n-1);
-           //return Math.sqrt(st).toFixed(2);
-             return st.toFixed(2);
+           return Math.sqrt(st).toFixed(2);
+             //return st.toFixed(2);
       }
       else {return 0.0;}
       
   }
     
-  /*$scope.getStandardScore = function(){
+  $scope.getStandardScore = function(){
       let n =  $scope.nutrifacts.length;
       let aver = $scope.getAverage();
       let stdev = $scope.getStandardDeviation();
-      /*switch(str){
-          case 'sugars':
       for (var i = 0; i < n; i++){
         $scope.nutrifacts[i].sugars_ss =  ((((parseFloat($scope.nutrifacts[i].sugars)) - aver)/stdev).toFixed(2)).toString();
         $scope.nutrifacts[i].sugars_ds =  (parseFloat($scope.nutrifacts[i].sugars_ss))*10 + 50;          
               
       }
-              break;
-      }
-      //for (var i = 0; i < n; i++){}
-        //$scope.nutrifacts[i].sugars_ss =  ((((parseFloat($scope.nutrifacts[i].sugars)) - aver)/stdev).toFixed(2)).toString();
-        //$scope.nutrifacts[i].sugars_ds =  (parseFloat($scope.nutrifacts[i].sugars_ss))*10 + 50;          
-    //  }
-  }*/
+      
+  }
     
   $scope.getCode = function(l){
    
@@ -212,8 +167,6 @@ angular.module('App')
       monounsaturated_fat:'',
       cholesterol:'',
       cholesterol_dv:'',
-      cholesterol_ss:'',
-      cholesterol_ds:'',
       sodium:'',
       sodium_dv:'',
       potassium:'',
@@ -227,8 +180,6 @@ angular.module('App')
       sugars_ds:'',
       protein:'',
       protein_dv:'',    
-      protein_ss:'',
-      protein_ds:'',
       vitaminA:'',
       vitaminC:'',
       folicacid:'',
