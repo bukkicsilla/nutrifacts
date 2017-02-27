@@ -40,14 +40,31 @@ angular.module('App')
       
   }
   
-  $scope.getMedian =  function(){
+  $scope.getMedian =  function(str){
       let n = $scope.nutrifacts.length;
       //get sorted array
       var values = [];
-      for (var i = 0; i < n; i++){
-          values.push(parseInt($scope.nutrifacts[i].sugars, 10));
-          
+      switch(str){
+          case 'sugars':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].sugars, 10));
+          }
+          break;
+          case 'cholesterol':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].cholesterol, 10));
+          }
+          break;
+          case 'protein':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].protein, 10));
+          }
+          break;
       }
+      //for (var i = 0; i < n; i++){
+        //  values.push(parseInt($scope.nutrifacts[i].sugars, 10));
+          
+      //}
       values.sort((a, b) => a - b);
       
       if (n % 2 == 0){
