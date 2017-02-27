@@ -13,15 +13,29 @@ angular.module('App')
   };    
     
     
-  $scope.getAverage =  function(){
+  $scope.getAverage =  function(str){
       let n = $scope.nutrifacts.length;
       var sum = 0;
-      for (var i = 0; i < n; i++){
-          sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
+      //for (var i = 0; i < n; i++){
+        //  sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
+      //}
+      switch (str) {
+         case 'sugars': 
+          for (var i = 0; i < n; i++){
+              sum += parseInt($scope.nutrifacts[i].sugars, 10); //don't forget to add the base 
+           }
+           break;
+         case 'cholesterol':
+          for (var i = 0; i < n; i++){
+              sum += parseInt($scope.nutrifacts[i].cholesterol, 10); //don't forget to add the base 
+           }
+           break;
+           case 'protein':
+               for (var i = 0; i < n; i++){
+              sum += parseInt($scope.nutrifacts[i].protein, 10); //don't forget to add the base 
+           }
+           break;
       }
-      /*let values = $scope.nutrifacts.sugars;
-      let sum = values.reduce((previous, current) => current += previous);
-      let avg = sum / n;*/
     return (sum/n).toFixed(2);
       
   }
@@ -53,8 +67,8 @@ angular.module('App')
       }
       if (n > 1){
       let st = sum/(n-1);
-           return Math.sqrt(st).toFixed(2);
-             //return st.toFixed(2);
+           //return Math.sqrt(st).toFixed(2);
+             return st.toFixed(2);
       }
       else {return 0.0;}
       

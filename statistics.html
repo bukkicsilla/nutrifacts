@@ -48,6 +48,7 @@
         
         <br><br><br><br>
         <div class="row row-content">
+            <!------------------------------------------------>
             <div class="col-sm-7">
                 
           <div class="row">
@@ -80,37 +81,7 @@
                </div>
              </div>
                 
-                <!--<br><br><br><hr id="cholesterolid"><br><br><br>
                 
-                <div class="row">
-              <div class="col-sm-4">
-                  <p>Food Item</p>
-              </div>
-              <div class="col-sm-2">
-                   <p> Cholesterol </p>
-              </div>
-              <div class="col-sm-2">
-                  <p> Standard Score</p>
-               </div>
-              <div class="col-sm-2">
-                  <p> Deviation Score</p>
-               </div>
-             </div>
-        
-            <div class="row" ng-repeat="item in nutrifacts">
-               <div class="col-sm-4">
-                  <p> {{item.title}}</p>
-               </div>
-               <div class="col-sm-2">
-                  <p> {{item.sugars}}</p>
-               </div>
-                <div class="col-sm-2"> {{getStandardScore()}}
-                  <p> {{item.sugars_ss}}</p>
-               </div>
-                <div class="col-sm-2"> {{getStandardScore()}}
-                  <p> {{item.sugars_ds}}</p>
-               </div>
-             </div>-->
                 
             </div>    
          
@@ -123,7 +94,7 @@
             <p> Total  Number of Itemes: {{nutrifacts.length}} </p>
             </div>
             <div class="col-sm-12">
-            <p> Average Sugar in food: {{getAverage()}}g </p>
+            <p> Average Sugar in food: {{getAverage('sugars')}}g </p>
             </div>
         <div class="col-sm-12">
             <p> Median of Sugar in food: {{getMedian()}}g </p>
