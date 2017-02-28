@@ -117,3 +117,7 @@ ul{
     left: 0;
     min-height: 300px;
 }
+.btn, .dropdown-menu{
+    background-color:#3894db;
+    color:darkslateblue;
+}

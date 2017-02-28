@@ -6,6 +6,12 @@ angular.module('App')
   $scope.tab = 0;
   $scope.abcCode = '';
   $scope.searchText = '';
+  $scope.molecule = 0;
+    
+    
+  $scope.showStatistics = function(str){
+      
+  };
     
   $scope.search = function(){
       
