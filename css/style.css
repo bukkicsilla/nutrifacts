@@ -13,15 +13,7 @@ body#index{
 textarea.editor {
   height: 500px;
 }
-/*.preview {
-  display: block;
-  padding: 20px;
-  background: #f5f5f5;
-  height: 500px;
-  overflow: scroll;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}*/
+
 .jumbotron {
   margin: 0px auto;
   padding: 70px 30px;
@@ -64,6 +56,7 @@ h4{
  //background-color:darkslateblue;
  background-color: #303f9f;
  border-color:cornflowerblue;
+ color:yellow;
     
 }
 #navindex{
@@ -83,9 +76,8 @@ h4{
  border: 0;
     
 }
-ul{
-    //background-color:cornflowerblue;
-    
+.list-group-item{
+    background-color:azure;
     
 }
 .nav > li.active > a{
@@ -117,7 +109,14 @@ ul{
     left: 0;
     min-height: 300px;
 }
+.carousel-text{
+    color:lightblue;
+}
 .btn, .dropdown-menu{
-    background-color:#3894db;
+    background-color: azure;
     color:darkslateblue;
+}
+
+#donut{
+    width:200px;
 }
