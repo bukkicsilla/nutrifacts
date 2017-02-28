@@ -75,12 +75,30 @@ angular.module('App')
       }
   }
   
-  $scope.getStandardDeviation = function(){
+  $scope.getStandardDeviation = function(str){
      let n =  $scope.nutrifacts.length;
       var sum = 0.0;
-      let aver = $scope.getAverage();
-      for (var i = 0; i < n; i++){
+      let aver = $scope.getAverage(str);
+      //for (var i = 0; i < n; i++){
+        //  sum += Math.pow((parseFloat($scope.nutrifacts[i].sugars, 10) - aver), 2 );
+      //}
+      switch(str){
+          case 'sugars':
+         for (var i = 0; i < n; i++){
           sum += Math.pow((parseFloat($scope.nutrifacts[i].sugars, 10) - aver), 2 );
+      }
+              break;
+          case 'cholesterol':
+         for (var i = 0; i < n; i++){
+          sum += Math.pow((parseFloat($scope.nutrifacts[i].cholesterol, 10) - aver), 2 );
+      }
+              break;
+              case 'protein':
+         for (var i = 0; i < n; i++){
+          sum += Math.pow((parseFloat($scope.nutrifacts[i].protein, 10) - aver), 2 );
+      }
+              break;
+              
       }
       if (n > 1){
       let st = sum/(n-1);
