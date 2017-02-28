@@ -52,16 +52,16 @@
           <!--<li class="list-group-item" ng-repeat="item in nutrifacts | orderBy : 'title'  " ng-click="view($index)" ng-class="{active: item.id == content.id}">{{item.title}}
                 <small>{{item.date | date:'short'}}</small>
           </li>-->
-          <li class="list-group-item"> Sugars </li>
-          <li class="list-group-item"> Cholesterol </li>
-          <li class="list-group-item"> Protein </li>
+          <li class="list-group-item" ng-click="showStatistics('sugars')"> Sugars </li>
+          <li class="list-group-item" ng-click="showStatistics('cholesterol')"> Cholesterol </li>
+          <li class="list-group-item" ng-click="showStatistics('protein')"> Protein </li>
     </ul>
    </div>
         
-        <h2 id="sugarsid">STATISTICS</h2>
+        <!--<h2 id="sugarsid">STATISTICS</h2>-->
         
-        <br><br><br><br>
-        <div class="row row-content">
+        <br><br>
+        <div class="row row-content" ng-show="sugarsShow">
             <!------------------------------------------------>
             <div class="col-sm-7">
                 
@@ -123,7 +123,7 @@
         
             
         <!-------------------------------------------------------------->    
-        <div class="col-sm-2">
+        <!--<div class="col-sm-2">
         <nav class="hidden-xs col-sm-2" id="myScrollspy">
             <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="200">
                 <li><a href="#sugarsid">Sugars</a></li>
@@ -131,15 +131,16 @@
                 <li><a href="#proteinid">Protein</a></li>
             </ul>
         </nav>
-        </div>
+        </div>-->
       </div>
         
          <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     
-        <br><br><br><br>
+        <!--<br><br><br><br>
         <hr id="cholesterolid">
-        <br><br><br><br>
-        <div class="row row-content">
+        <br><br><br><br>-->
+        
+        <div class="row row-content" ng-show="cholesterolShow">
             <!------------------------------------------------>
             <div class="col-sm-7">
                 
@@ -206,10 +207,11 @@
         <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
         
         
-        <br><br><br><br>
+        <!--<br><br><br><br>
         <hr id="proteinid">
-        <br><br><br><br>
-        <div class="row row-content">
+        <br><br><br><br>-->
+        
+        <div class="row row-content" ng-show="proteinShow">
             <!------------------------------------------------>
             <div class="col-sm-7">
                 

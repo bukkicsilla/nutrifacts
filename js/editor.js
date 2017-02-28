@@ -6,11 +6,33 @@ angular.module('App')
   $scope.tab = 0;
   $scope.abcCode = '';
   $scope.searchText = '';
-  $scope.molecule = 0;
+  $scope.sugarsShow = false;
+  $scope.cholesterolShow = false;
+  $scope.proteinShow = false;
+    
+    
+  
     
     
   $scope.showStatistics = function(str){
-      
+      switch(str){
+          case 'sugars':
+              $scope.sugarsShow = true;
+              $scope.cholesterolShow = false;
+              $scope.proteinShow = false;
+              break;
+          case 'cholesterol':
+              $scope.sugarsShow = false;
+              $scope.cholesterolShow = true;
+              $scope.proteinShow = false;
+              break;
+          case 'protein':
+              $scope.sugarsShow = false;
+              $scope.cholesterolShow = false;
+              $scope.proteinShow = true;
+              break;
+              
+      }
   };
     
   $scope.search = function(){
