@@ -102,20 +102,39 @@ angular.module('App')
       }
       if (n > 1){
       let st = sum/(n-1);
-           //return Math.sqrt(st).toFixed(2);
-             return st.toFixed(2);
+           return Math.sqrt(st).toFixed(2);
+             //return st.toFixed(2);
       }
       else {return 0.0;}
       
   }
     
-  $scope.getStandardScore = function(){
+  $scope.getStandardScore = function(str){
       let n =  $scope.nutrifacts.length;
-      let aver = $scope.getAverage();
-      let stdev = $scope.getStandardDeviation();
+      let aver = $scope.getAverage(str);
+      let stdev = $scope.getStandardDeviation(str);
+      switch(str){
+          case 'sugars':
       for (var i = 0; i < n; i++){
         $scope.nutrifacts[i].sugars_ss =  ((((parseFloat($scope.nutrifacts[i].sugars)) - aver)/stdev).toFixed(2)).toString();
         $scope.nutrifacts[i].sugars_ds =  (parseFloat($scope.nutrifacts[i].sugars_ss))*10 + 50;          
+              
+      }
+              break;
+      case 'cholesterol':
+      for (var i = 0; i < n; i++){
+        $scope.nutrifacts[i].cholesterol_ss =  ((((parseFloat($scope.nutrifacts[i].cholesterol)) - aver)/stdev).toFixed(2)).toString();
+        $scope.nutrifacts[i].cholesterol_ds =  (parseFloat($scope.nutrifacts[i].cholesterol_ss))*10 + 50;          
+              
+      }
+              break;
+      case 'protein':
+      for (var i = 0; i < n; i++){
+        $scope.nutrifacts[i].protein_ss =  ((((parseFloat($scope.nutrifacts[i].protein)) - aver)/stdev).toFixed(2)).toString();
+        $scope.nutrifacts[i].protein_ds =  (parseFloat($scope.nutrifacts[i].protein_ss))*10 + 50;          
+              
+      }
+              break;
               
       }
       
@@ -216,6 +235,8 @@ angular.module('App')
       monounsaturated_fat:'',
       cholesterol:'',
       cholesterol_dv:'',
+      cholesterol_ss:'',
+      cholesterol_ds:'',
       sodium:'',
       sodium_dv:'',
       potassium:'',
@@ -228,7 +249,9 @@ angular.module('App')
       sugars_ss:'',
       sugars_ds:'',
       protein:'',
-      protein_dv:'',    
+      protein_dv:'',   
+      protein_ss:'',
+      protein_ds:'',
       vitaminA:'',
       vitaminC:'',
       folicacid:'',
