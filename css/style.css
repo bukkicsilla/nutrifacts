@@ -35,7 +35,7 @@ textarea.editor {
  
     
 }
-h4{
+h4{ 
     
     //color: crimson;
     color:darkslateblue;
@@ -55,8 +55,8 @@ h4{
 .navbar{
  //background-color:darkslateblue;
  background-color: #303f9f;
- border-color:cornflowerblue;
- color:yellow;
+ //border-color:cornflowerblue;
+ //color:yellow;
     
 }
 #navindex{
@@ -80,12 +80,19 @@ h4{
     background-color:azure;
     
 }
+#navbar > ul > li > a{
+    
+    color:azure;
+}
+.logo {
+    color:lightskyblue;
+}
 .nav > li.active > a{
     background-color: cornflowerblue;
     color: darkslateblue;
 }
 .nav > li.active > a:hover, .nav > li.active > a:focus, .nav > li > a:hover {
-    background-color:azure;
+    background-color:lightskyblue;
     border:0;
     color:black;
 }
@@ -119,4 +126,7 @@ h4{
 
 #donut{
     width:200px;
+}
+#nutri{
+    font-size:24px;
 }
