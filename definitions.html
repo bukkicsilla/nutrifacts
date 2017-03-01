@@ -15,7 +15,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
 
-  <body data-spy="scroll" data-target="#myScrollspy" data-offset="200">
+  <body data-spy="scroll" data-target="#myScrollspy" data-offset="300">
 
     
 
@@ -48,49 +48,57 @@
         
         <div class=row row-content>
             <div class="col-sm-8">
+                <p id="calories"></p><br><br><br>
+                <div > <p class="def"> Calories </p>   
+                A calorie is a unit of energy. In nutrition and everyday language, calories refer to energy consumption through eating and drinking, and energy usage through physical activity. Calories are essential for human health; the key is taking on the right amount. Everyone requires different amounts of energy per day depending on age, size and activity levels. The number of calories food contains tells us how much potential energy they posses. Below are the calorific values of the three main components of the food we eat: <span> 1 gram of carbohydrates contains 4 calories, </span> <span> 1 gram of protein contains 4 calories, </span>
+                <span> 1 gram of fat contains 9 calories. </span>
+                </div>
+                <p id="nutrients"></p> <br><br><br>
+                <div > <p class="def"> Nutrients </p>   
                 
-                <div class="row">
-              <div class="col-sm-4">
-                  <p>Food Item</p>
-              </div>
-              <div class="col-sm-2">
-                   <p> Cholesterol </p>
-              </div>
-              <div class="col-sm-2">
-                  <p> Standard Score</p>
-               </div>
-              <div class="col-sm-2">
-                  <p> Deviation Score</p>
-               </div>
-             </div>
-        
-            <div class="row" ng-repeat="item in nutrifacts">
-               <div class="col-sm-4">
-                  <p> {{item.title}}</p>
-               </div>
-               <div class="col-sm-2">
-                  <p> {{item.cholesterol}}</p>
-               </div>
-                <div class="col-sm-2"> {{getStandardScore('cholesterol')}}
-                  <p> {{item.cholesterol_ss}}</p>
-               </div>
-                <div class="col-sm-2"> 
-                  <p> {{item.cholesterol_ds}}</p>
-               </div>
-             </div>
+                </div>
+                <p id="totalfat"></p><br><br> 
+                <div > <p class="def"> Total Fat </p>   
+                
+                </div>
+                <p id="satfat"></p><br> <br>
+                <div > <p class="def"> Saturated Fat </p>   
+                
+                </div>
+                <p id="transfat"></p><br> <br>
+                <div > <p class="def"> Trans Fat </p>   
+                
+                </div>
+                
+                <p id="cholesterol"></p><br> <br>
+                <div > <p class="def"> Cholesterol </p>   
+                </div>
+                <p id="sodium"></p><br> <br>
+                <div > <p class="def"> Sodium </p>   
+                </div>
+                <p id="totalcarb"></p><br> <br>
+                <div > <p class="def"> Total Carbohydrate</p>   
+                </div>
             </div>
             
             <div class="col-sm-2">
             </div>
             <div class="col-sm-2">
         <nav class="hidden-xs col-sm-12" id="myScrollspy">
-            <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="200">
+            <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="300">
                 <li><a href="#calories">Calories</a></li>
-                <li id="nutri"><a href="#nutritient">Nutritient</a></li>
+                <li><a href="#servingsize">Serving Size</a></li>
+                <li><a href="#dailyvalue">Daily Value</a></li>
+                <li id="nutri"><a href="#nutrients">Nutritient</a></li>
                 <li><a href="#totalfat">Total Fat</a></li>
                 <li><a href="#satfat">Saturated Fat </a></li>
                 <li><a href="#transfat">Trans Fat</a></li>
-                <li><a href="#choles">Cholesterol</a></li>
+                <li><a href="#cholesterol">Cholesterol</a></li>
+                <li><a href="#sodium">Sodium</a></li>
+                <li><a href="#totalcarb">Total Carbohydrate </a></li>
+                <li><a href="#dietfib">Dietary Fiber</a></li>
+                <li><a href="#sug">Sugars</a></li>
+                <li><a href="#prot">Protein</a></li>
                 
             </ul>
         </nav>

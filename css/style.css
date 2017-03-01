@@ -89,7 +89,8 @@ h4{
 }
 .nav > li.active > a{
     background-color: cornflowerblue;
-    color: darkslateblue;
+    //color: darkslateblue;
+    color: darkblue;
 }
 .nav > li.active > a:hover, .nav > li.active > a:focus, .nav > li > a:hover {
     background-color:lightskyblue;
@@ -100,6 +101,7 @@ h4{
     color:darkblue;
     
 }
+
 
 .carousel {
     background:#1A237E;
@@ -129,4 +131,11 @@ h4{
 }
 #nutri{
     font-size:24px;
+}
+.affix {
+    top:100px;
+}
+.def{
+    font-size:24px;
+    color:#303f9f;
 }
