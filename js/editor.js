@@ -10,6 +10,10 @@ angular.module('App')
   $scope.sugarMax = '100g sugar';
   $scope.cholesterolMin = '0mg cholesterol';
   $scope.cholesterolMax = '100mg cholesterol';
+  $scope.proteinMin = '0g protein';
+  $scope.proteinMax = '100g protein';
+  $scope.sodiumMin = '0mg sodium';
+  $scope.sodiumMax = '1000mg sodium';
   $scope.sugarsShow = false;
   $scope.cholesterolShow = false;
   $scope.proteinShow = false;
@@ -43,8 +47,41 @@ angular.module('App')
       
       $scope.abcCode = $scope.searchText;
   };    
+  
+  $scope.nutrientFilter = function(item) {
+      let vsug = parseInt(item.sugars);
+      let vchol = parseInt(item.cholesterol);
+      let vprot = parseInt(item.protein);
+      let vsod = parseInt(item.sodium);
+      let xsug = $scope.sugarMin;
+      let xchol = $scope.cholesterolMin;
+      let xprot = $scope.proteinMin;
+      let xsod = $scope.sodiumMin;
+      let ysug = $scope.sugarMax;
+      let ychol = $scope.cholesterolMax;
+      let yprot = $scope.proteinMax;
+      let ysod = $scope.sodiumMax;
+      
+      if (xsug === ''){ xsug = '0'}
+      if (xchol === ''){ xchol = '0'}
+      if (xprot === ''){ xprot = '0'}
+      if (xsod === ''){ xsod = '0'}
+      if (ysug === ''){ ysug = '100'}
+      if (ychol === ''){ ychol = '100'}
+      if (yprot === ''){yprot = '100'}
+      if (ysod === '') {ysod = '1000'}
+      
+        if (vsug >= parseInt(xsug) && vsug <= parseInt(ysug) && 
+            vchol >= parseInt(xchol) && vchol <= parseInt(ychol) &&
+            vprot >= parseInt(xprot) && vprot <= parseInt(yprot) &&
+            vsod >= parseInt(xsod) && vsod <= parseInt(ysod)){
+         return item;
+      }
+      
+  };
     
-  $scope.minsugarFilter = function(item) {
+    
+  /*$scope.minsugarFilter = function(item) {
       let v = parseInt(item.sugars);
       let x = $scope.sugarMin;
       if (x === ''){ x = '0'}
@@ -83,7 +120,7 @@ angular.module('App')
          return item;
       }
       
-  };
+  };*/
     
   $scope.getMax = function(str){
       let n = $scope.nutrifacts.length;
