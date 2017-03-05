@@ -40,7 +40,32 @@ angular.module('App')
       $scope.abcCode = $scope.searchText;
   };    
     
-    
+  
+  $scope.getMax = function(str){
+      let n = $scope.nutrifacts.length;
+      //get sorted array
+      var values = [];
+      switch(str){
+          case 'sugars':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].sugars, 10));
+          }
+          break;
+          case 'cholesterol':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].cholesterol, 10));
+          }
+          break;
+          case 'protein':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].protein, 10));
+          }
+          break;
+      }
+      var max_of_array = Math.max.apply(Math, values);
+      return max_of_array;
+  }
+  
   $scope.getAverage =  function(str){
       let n = $scope.nutrifacts.length;
       var sum = 0;
