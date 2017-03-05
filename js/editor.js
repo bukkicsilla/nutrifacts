@@ -6,6 +6,10 @@ angular.module('App')
   $scope.tab = 0;
   $scope.abcCode = '';
   $scope.searchText = '';
+  $scope.sugarMin = '0g sugar';
+  $scope.sugarMax = '100g sugar';
+  $scope.cholesterolMin = '0mg cholesterol';
+  $scope.cholesterolMax = '100mg cholesterol';
   $scope.sugarsShow = false;
   $scope.cholesterolShow = false;
   $scope.proteinShow = false;
@@ -40,7 +44,47 @@ angular.module('App')
       $scope.abcCode = $scope.searchText;
   };    
     
-  
+  $scope.minsugarFilter = function(item) {
+      let v = parseInt(item.sugars);
+      let x = $scope.sugarMin;
+      if (x === ''){ x = '0'}
+      //if (item.sugars === '0g' || item.sugars === $scope.sugarMin) {
+        if (v >= parseInt(x) ){
+         return item;
+      }
+      
+  };
+
+    $scope.mincholesterolFilter = function(item) {
+      let v = parseInt(item.cholesterol);
+        let x = $scope.cholesterolMin;
+        if (x === ''){ x = '0'}
+        if (v >= parseInt(x) ){
+         return item;
+      }
+      
+  };
+
+  $scope.maxsugarFilter = function(item) {
+      let v = parseInt(item.sugars);
+      let y = $scope.sugarMax;
+      if (y === ''){ y = '100'}
+        if (v <= parseInt(y) ){
+         return item;
+      }
+      
+  };
+    
+ $scope.maxcholesterolFilter = function(item) {
+      let v = parseInt(item.cholesterol);
+      let y = $scope.cholesterolMax;
+      if (y === '') { y = '100'}
+        if (v <= parseInt(y) ){
+         return item;
+      }
+      
+  };
+    
   $scope.getMax = function(str){
       let n = $scope.nutrifacts.length;
       //get sorted array
