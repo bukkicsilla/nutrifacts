@@ -17,6 +17,7 @@ angular.module('App')
   $scope.sugarsShow = false;
   $scope.cholesterolShow = false;
   $scope.proteinShow = false;
+  $scope.sodiumShow = false;
     
     
   
@@ -28,18 +29,26 @@ angular.module('App')
               $scope.sugarsShow = true;
               $scope.cholesterolShow = false;
               $scope.proteinShow = false;
+              $scope.sodiumShow = false;
               break;
           case 'cholesterol':
               $scope.sugarsShow = false;
               $scope.cholesterolShow = true;
               $scope.proteinShow = false;
+              $scope.sodiumShow = false;
               break;
           case 'protein':
               $scope.sugarsShow = false;
               $scope.cholesterolShow = false;
               $scope.proteinShow = true;
+              $scope.sodiumShow = false;
               break;
-              
+          case 'sodium':
+              $scope.sugarShow = false;
+              $scope.cholesterolShow = false;
+              $scope.proteinShow = false;
+              $scope.sodiumShow = true;
+              break;
       }
   };
     
@@ -142,6 +151,12 @@ angular.module('App')
                 values.push(parseInt($scope.nutrifacts[i].protein, 10));
           }
           break;
+          case 'sodium':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].sodium, 10));
+          }
+          break;
+              
       }
       var max_of_array = Math.max.apply(Math, values);
       return max_of_array;
@@ -169,6 +184,11 @@ angular.module('App')
               sum += parseInt($scope.nutrifacts[i].protein, 10); //don't forget to add the base 
            }
            break;
+          case 'sodium':
+               for (var i = 0; i < n; i++){
+              sum += parseInt($scope.nutrifacts[i].sodium, 10); //don't forget to add the base 
+           }
+           break;
       }
     return (sum/n).toFixed(2);
       
@@ -192,6 +212,11 @@ angular.module('App')
           case 'protein':
             for (var i = 0; i < n; i++){
                 values.push(parseInt($scope.nutrifacts[i].protein, 10));
+          }
+          break;
+          case 'sodium':
+            for (var i = 0; i < n; i++){
+                values.push(parseInt($scope.nutrifacts[i].sodium, 10));
           }
           break;
       }
@@ -227,12 +252,17 @@ angular.module('App')
           sum += Math.pow((parseFloat($scope.nutrifacts[i].cholesterol, 10) - aver), 2 );
       }
               break;
-              case 'protein':
+          case 'protein':
          for (var i = 0; i < n; i++){
           sum += Math.pow((parseFloat($scope.nutrifacts[i].protein, 10) - aver), 2 );
       }
               break;
               
+           case 'sodium':
+         for (var i = 0; i < n; i++){
+          sum += Math.pow((parseFloat($scope.nutrifacts[i].sodium, 10) - aver), 2 );
+      }
+              break;
       }
       if (n > 1){
       let st = sum/(n-1);
@@ -266,6 +296,13 @@ angular.module('App')
       for (var i = 0; i < n; i++){
         $scope.nutrifacts[i].protein_ss =  ((((parseFloat($scope.nutrifacts[i].protein)) - aver)/stdev).toFixed(2)).toString();
         $scope.nutrifacts[i].protein_ds =  (parseFloat($scope.nutrifacts[i].protein_ss))*10 + 50;          
+              
+      }
+              break;
+     case 'sodium':
+      for (var i = 0; i < n; i++){
+        $scope.nutrifacts[i].sodium_ss =  ((((parseFloat($scope.nutrifacts[i].sodium)) - aver)/stdev).toFixed(2)).toString();
+        $scope.nutrifacts[i].sodium_ds =  (parseFloat($scope.nutrifacts[i].sodium_ss))*10 + 50;          
               
       }
               break;
@@ -373,6 +410,8 @@ angular.module('App')
       cholesterol_ds:'',
       sodium:'',
       sodium_dv:'',
+      sodium_ss:'',
+      sodium_ds:'',
       potassium:'',
       potassium_dv:'',
       total_carbohydrate:'',
